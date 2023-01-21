@@ -4,7 +4,7 @@ This repository uses Github Actions, i.e. Github's  continuous integration and c
 
 The Docker image offers a convenient way to run nodes and launch files of the ROS package without having to compile it on a local computer and having to worry about its dependencies such as specific library or OS versions.
 
-# BALM
+## BALM
 
 This repository creates a Docker image with 
 [ROSblox's BALM](https://github.com/rosblox/balm) 
@@ -12,34 +12,34 @@ ROS package, which is a fork with no/minor modifications in comparison to its pa
 [HKU-Mars-Lab's BALM](https://github.com/hku-mars/balm)
 . Checkout the repository's README.md for more information about this ROS package.
 
-# Prerequisites to running the Docker image
+## Prerequisites to running the Docker image
 
-## Install docker
+### Install docker
 
 Install the Docker engine, https://docs.docker.com/get-docker/.
 
 
-## Login to Github's container registry
+### Login to Github's container registry
 ```
 docker login ghcr.io
 ```
 
-## Clone this repository
+### Clone this repository
 ```
 git clone https://github.com/rosblox/ros-balm.git
 ```
 
 
-# Running the ROS package
+## Running the ROS package
 
-## Start the container
+### Start the container
 ```
 cd ./ros-balm
 ./run.sh
 ```
 Note, the Docker image is pulled automatically once, if it hasn't been pulled yet.
 
-## Start the ROS package
+### Start the ROS package
 Inside the container, start ROS package by executing
 ```
 run
@@ -47,28 +47,27 @@ run
 Note, the `run` command is an alias defined in the `~/.bashrc` to launch the ROS package's launch file.
 
 
-# Additional info
+## Additional info
 
 
-## Update your (local) Docker image
+### Update your (local) Docker image
 
 This repository's automatically built Docker image is uploaded to Github's Container Registry (ghcr.io). Newer versions of the Docker image can be pulled by running
 ```
 docker pull ghcr.io/rosblox/ros-balm:noetic
 ```
 
-## Build Docker image locally
+### Build Docker image locally
 For convenience, there is a `build.sh` script located at the root of the repository. Run 
 ```
 ./build.sh
 ```
 to build the Docker image on your local computer, e.g. when you made changes to the Dockerfile.
 
-## Update the ROS package in the (automatically built) Docker image
+### Update the ROS package in the (automatically built) Docker image
 
 To include updates of the ROS package's parent repository,
 [HKU-Mars-Lab's BALM](https://github.com/hku-mars/balm)
 , in the automatically built Docker images, please create a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to 
 [ROSblox's BALM](https://github.com/rosblox/balm) 
 fork with the changes. 
-
